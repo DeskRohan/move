@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No Button Moving 😆</title>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+    }
+
+    #yesBtn {
+      background: #00c853;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ff1744;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Do you like me? 😁</h1>
+    <button id="yesBtn" onclick="alert('Yayyy 😍')">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    function moveButton() {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    // Move on hover
+    noBtn.addEventListener("mouseenter", moveButton);
+
+    // Move on click attempt (mobile support)
+    noBtn.addEventListener("click", moveButton);
+
+    // Start position
+    moveButton();
+  </script>
+
+</body>
+</html>
